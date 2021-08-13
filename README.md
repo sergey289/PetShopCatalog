@@ -1,7 +1,7 @@
 # PetShopCatalog
 
 ### Description:
-simple online pet catalog that enables to browse at the catalog, look at individual animals and leave comments
+Simple online pet catalog that enables to browse at the catalog, look at individual animals and leave comments
 
 ##### The application breaks down to:
 -	Home page – welcome, two selected animals (most highly commented upon)
