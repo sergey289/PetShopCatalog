@@ -1,0 +1,54 @@
+﻿@model IEnumerable<PetShop.Models.Animals>
+
+
+@{
+
+}
+
+<h2 class=" text-center">List of animals</h2>
+<br />
+<select onchange="location = this.value;">
+    @foreach (Categories item in @ViewBag.categories)
+    {
+        <option value="/User/ByCategories/@item.CategoryID?limit=50" , selected="selected">@item.Name</option>
+
+    }
+</select>
+<br />
+<br />
+<div class="container">
+
+    <div class="row">
+        <div class="col-12">
+
+
+            <table class="table table-image">
+                <thead>
+                    <tr>
+                        <th scope="col">Portrait</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">For more information</th>
+
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img class="img-fluid img-thumbnail" style="height:80px;width:100px;" src="@Url.Content(@item.PictureName)" />
+                            </td>
+                            <td>@item.Name</td>
+                            <td>
+                                <input type="button" class="btn-outline-primary" value="Details" onclick="location.href='@Url.Action("AnimalInfo", "User", new { id = item.AnimalID })'" />
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+
+        </div>
+    </div>
+
+</div>
+

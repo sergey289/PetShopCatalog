@@ -1,0 +1,55 @@
+﻿@model PetShop.Models.Animals
+@{
+    var comment = "";
+    var id = Model.AnimalID;
+}
+<br />
+<br />
+<h5 style="color:green">Animal Info</h5>
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Category Name</th>
+            <th style="color:coral">Description</th>
+
+
+        </tr>                                                                                                                             
+    </thead>
+    
+        <tbody>
+            <tr>
+                <td width="200px">@Model.Name</td>
+                <td>@Model.Age</td>
+                <td>@ViewBag.categoryName</td>
+                <td width="250">
+                 <div style="width:250px;height:80px;line-height:3em;overflow:auto;padding:5px;">
+                    @Model.Description
+                  </div>
+                </td>
+            </tr>
+        </tbody>
+</table>
+
+
+  <h6 style="color:coral">Comments</h6>
+
+  <form>
+
+      <div>
+          <textarea asp-for="@comment" type="text"></textarea>
+          <input asp-for="@id" type="hidden" />
+      </div>
+
+   <input asp-action="AddComments" asp-controller="User" type="submit" value="Submit"/>
+  </form>
+
+    @foreach (Comments com in @ViewBag.comment)
+    {
+        <ul class="list-group">
+            <li class="list-group-item">@com.Comment</li>
+        </ul>
+
+    }

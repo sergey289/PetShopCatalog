@@ -1,0 +1,72 @@
+﻿@model IEnumerable<PetShop.Models.Animals>
+
+
+@{
+
+}
+
+<br />
+
+<select onchange="location = this.value;">
+
+    @foreach (Categories item in @ViewBag.categories)
+    {
+        <option value="/Administrator/ByCategories/@item.CategoryID?limit=50" , selected="selected">@item.Name</option>
+
+    }
+
+
+</select>
+
+
+    <input type="button"  id="add" value="Add New Animal" onclick="location.href='@Url.Action("Add", "Administrator")'" />
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-12">
+
+
+            <table class="table table-image" style="width:1000px;">
+
+
+                <thead>
+                    <tr>
+                        <th scope="col">Portrait</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">For more information</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td style="width:100px">
+                                <img class="img-fluid img-thumbnail" style="height:80px;width:100px;" src="@Url.Content(@item.PictureName)" />
+                            </td>
+                            <td style="width:100px">@item.Name</td>
+                            <td style="width:100px">
+
+                                <input type="button" class="btn-outline-primary" style="color:black" value="Details" onclick="location.href='@Url.Action("AnimalInfo", "User", new { id = item.AnimalID })'" />
+                                <input type="button" class="btn-outline-primary" style="color:black;background-color:red" value="Delete" onclick="location.href='@Url.Action("Delete", "Administrator", new { id = item.AnimalID })'" />
+                                <input type="button" class="btn-outline-primary" style="color:black;background-color:khaki" value="Edit" onclick="location.href='@Url.Action("Edit", "Administrator", new {item.AnimalID })'" />
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+</div>

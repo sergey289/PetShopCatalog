@@ -1,0 +1,49 @@
+﻿
+
+.navbar {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+    
+   
+}
+
+nav{
+
+height:50px;
+
+
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    padding-left: 10px;
+    font-size: 15px;
+    
+}
+
+li {
+    float: left;
+    
+    
+
+}
+
+
+
+li a 
+{
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 22px;
+    text-decoration: none;
+        
+  }
+
+
+

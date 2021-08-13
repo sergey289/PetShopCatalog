@@ -1,0 +1,89 @@
+﻿
+@model PetShop.Models.Animals
+@{
+
+}
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<br />
+@using (Html.BeginForm())
+{
+
+    <div class="form-group" id="con">
+
+        <form action="Edit/Administrator" method="post">
+
+            <br />
+            <h5>Form to Edit Animal info</h5>
+            <br />
+
+            <div>
+                @Html.LabelFor(model => model.Name)
+            </div>
+            <div>
+                @Html.TextBoxFor(model => model.Name)
+            </div>
+
+
+            <div>
+                @Html.LabelFor(model => model.Age)
+            </div>
+            <div>
+                @Html.TextBoxFor(model => model.Age)
+            </div>
+
+
+
+
+            <div>
+                @Html.LabelFor(model => model.PictureName)
+            </div>
+            <div>
+                <img src="@Url.Content(Model.PictureName)"style="height:40px;width:50px;" />
+                <input type="file" name="ImageFile" id="file" />
+            </div>
+
+
+
+            <div>
+                @Html.LabelFor(model => model.Description)
+            </div>
+            <div>
+                @Html.TextAreaFor(model => model.Description)
+            </div>
+
+
+            <div>
+                @Html.LabelFor(model => model.Category)
+            </div>
+            <div>
+                <select id="addCatagory" name="categoryID">
+
+                    <option value="@ViewBag.SpecificCategoryID" selected>@ViewBag.SpecificCategoryName </option>
+
+                    @foreach (Categories item in @ViewBag.categories)
+                    {
+                        <option value="@item.CategoryID">@item.Name</option>
+
+                    }
+
+                </select>
+            </div>
+            <br />
+            <p>
+                <input type="submit" value="Edit Animal" />
+            </p>
+
+
+
+
+        </form>
+
+    </div>
+
+
+
+}

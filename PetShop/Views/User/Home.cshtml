@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PetShop.Models.Animals>
+
+@{
+
+    ViewData["Title"] = "Home Page";
+}
+<br />
+<div class="text-center">
+    <h4 style="font-family:cursive" ;font-size="2.0rem" ;class="display-4"> Welcome to the Pet Shop Anipet </h4>
+
+</div>
+<br />
+<div class="container">
+
+    <div class="row">
+        <div class="col-12">
+
+
+            <table class="table table-image">
+                <thead>
+                    <tr>
+                        <th scope="col">Portrait</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">description</th>
+
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div>
+                                 <img  class="img-fluid img-thumbnail" style="height:80px;max-width:100px;" src="@Url.Content(@item.PictureName)" />
+                                </div>
+                           
+                            </td>
+                            <td>@item.Name</td>
+                            <td>
+                                @item.Description
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+
+        </div>
+    </div>
+
+</div>
+

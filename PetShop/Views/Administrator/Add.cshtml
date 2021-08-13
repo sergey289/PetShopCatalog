@@ -1,0 +1,81 @@
+﻿@model PetShop.Models.Animals
+@{
+   
+}
+
+
+
+
+@using (Html.BeginForm())
+{
+
+<div class="form-group" id="con">
+
+    <form>
+
+      <br />
+      <h5>Form to Add New Animal</h5>
+      <br />
+
+       <div>
+       @Html.LabelFor(model => model.Name)
+       </div>
+       <div>
+       @Html.EditorFor(model => model.Name)
+       </div>
+
+
+            <div>
+                @Html.LabelFor(model => model.Age)
+            </div>
+            <div>
+                @Html.EditorFor(model => model.Age)
+            </div>
+
+
+
+
+            <div>
+                @Html.LabelFor(model => model.PictureName)
+            </div>
+            <div>
+                <input type="file" name="ImageFile"/>
+            </div>
+
+
+
+            <div>
+                @Html.LabelFor(model => model.Description)
+            </div>
+            <div>
+                @Html.TextAreaFor(model => model.Description)
+            </div>
+
+
+            <div>
+                @Html.LabelFor(model => model.Category)
+            </div>
+            <div>
+                <select id="addCatagory" name="categoryID">
+                    @foreach (Categories item in @ViewBag.categories)
+                    {
+                        <option value="@item.CategoryID" ,selected="selected">@item.Name</option>
+
+                    }
+                </select>
+            </div>
+            <br />
+            <p>
+                <input type="submit" value="Add new Animal" />
+            </p>
+
+
+        
+
+    </form>
+
+     </div>
+
+
+
+}
